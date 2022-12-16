@@ -1,5 +1,5 @@
-## Tugas Kelompok Introduction to Programming 
-# Team 7
+# Tugas Kelompok Introduction to Programming 
+## Team 7
 
 
 |           Nama Anggota            |
