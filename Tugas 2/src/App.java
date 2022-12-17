@@ -2,6 +2,15 @@ import java.util.Scanner;
 
 public class App {
 
+    public static void numberRange(int input){
+        if (input >= 5 && input <= 20){
+            return;
+        } else {
+            System.out.println("Nomor harus diantara 5 sampai dengan 20!");
+            System.exit(0);
+        }
+    }
+
     public static int bilanganGenap(int value){
         String deret = "0 ";
         int a = 0;
@@ -60,10 +69,13 @@ public class App {
         Scanner myObj = new Scanner(System.in);
         Integer value;
 
-        System.out.println("Input Number : ");
+        System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+        System.out.print("Masukan Sembarang Angka [5..20] : ");
         value = myObj.nextInt();
+        numberRange(value);
+        System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
 
-        //Deret Bilangan Genap   
+        //Deret Bilangan Genap
         System.out.println(value + " Bilangan Genap : ");
         System.out.println(bilanganGenap(value));
 
