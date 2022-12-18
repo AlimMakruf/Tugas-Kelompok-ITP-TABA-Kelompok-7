@@ -1,16 +1,6 @@
 import java.util.Scanner;
 
 public class App {
-
-    public static void numberRange(int input){
-        if (input >= 5 && input <= 20){
-            return;
-        } else {
-            System.out.println("Nomor harus diantara 5 sampai dengan 20!");
-            System.exit(0);
-        }
-    }
-
     public static int bilanganGenap(int value){
         String deret = "0 ";
         int a = 0;
@@ -66,28 +56,68 @@ public class App {
     }
 
     public static void main(String[] args) throws Exception {
+        Scanner input_name = new Scanner(System.in);
+        Scanner input_nim = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
         Scanner myObj = new Scanner(System.in);
         Integer value;
+        boolean running = true;
+        String loopingAnswer;
 
-        System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-        System.out.print("Masukan Sembarang Angka [5..20] : ");
-        value = myObj.nextInt();
-        numberRange(value);
-        System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
 
-        //Deret Bilangan Genap
-        System.out.println(value + " Bilangan Genap : ");
-        System.out.println(bilanganGenap(value));
+        while (running) {
+            System.out.print("Masukkan nama Anda [1..25] : ");
+            String name = input_name.nextLine();
 
-        //Deret Bilangan Ganjil
-        System.out.println(value + " Bilangan Ganjil : ");
-        System.out.println(bilanganGanjil(value));
+            if (name.length() >= 25) {
+                System.out.print("Lebih dari 25 Karakter");
+            } else {
+                System.out.print("Masukkan NIM Anda [Harus 10 Karakter] : ");
+                String nim = input_nim.nextLine();
+                System.out.println("");
 
-        //Deret Bilangan Fibonacci
-        System.out.println(value + " Bilangan Fibonacci : ");
-        System.out.println(fibonacciCount(value));
+                if (nim.length() == 10) {
+                    System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+                    System.out.println("");
+                    System.out.println("Registrasi Sukses");
+                    System.out.println("Selamat Datang " +name+"[Nim : "+nim+"].. ^^V");
+                    System.out.println("");
+                    System.out.println("Mari belajar macam-macam deret bilangan..");
 
-        myObj.close();
+                    System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+                    System.out.print("Masukan Sembarang Angka [5..20] : ");
+                    value = myObj.nextInt();
+                    System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+
+                    if(value >= 5 && value <= 20 ){
+                        System.out.println("Deret Bilangan");
+                        System.out.println("##############");
+                        System.out.println("");
+
+                        //Deret Bilangan Genap
+                        System.out.println(value + " Bilangan Genap : ");
+                        System.out.println("Hasil Penjumlahan = " + bilanganGenap(value));
+
+                        //Deret Bilangan Ganjil
+                        System.out.println(value + " Bilangan Ganjil : ");
+                        System.out.println("Hasil Penjumlahan = " + bilanganGanjil(value));
+
+                        //Deret Bilangan Fibonacci
+                        System.out.println(value + " Bilangan Fibonacci : ");
+                        System.out.println("Hasil Penjumlahan = " + fibonacciCount(value));
+                    } else {
+                        System.out.println("Nomor harus diantara 5 sampai dengan 20!");
+                    }
+                } else {
+                    System.out.print("NIM tidak valid\n");
+                }
+            }
+            System.out.print("Apakah anda ingin mengulang [y/t] : ");
+            loopingAnswer = input.nextLine();
+
+            if (loopingAnswer.equalsIgnoreCase("t")) {
+                running = false;
+            }
+        }
     }
-
 }
