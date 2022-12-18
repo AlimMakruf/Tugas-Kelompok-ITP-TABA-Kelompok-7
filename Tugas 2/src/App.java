@@ -29,7 +29,7 @@ public class App {
         String deret = "1 ";
         int a = 1;
         int total = 1;
-        
+
         for(int i = 1; i < value; i++){
             a += 2;
             deret += a + " ";
@@ -54,7 +54,7 @@ public class App {
                 total += a+1;
                 continue;
             }
-            
+
             result = a + b ;
             a = b;
             b = result;
@@ -62,9 +62,9 @@ public class App {
         }
         System.out.println(deret);
         return total;
-        
+
     }
-    
+
     public static void main(String[] args) throws Exception {
         Scanner myObj = new Scanner(System.in);
         Integer value;
@@ -82,7 +82,7 @@ public class App {
         //Deret Bilangan Ganjil
         System.out.println(value + " Bilangan Ganjil : ");
         System.out.println(bilanganGanjil(value));
-        
+
         //Deret Bilangan Fibonacci
         System.out.println(value + " Bilangan Fibonacci : ");
         System.out.println(fibonacciCount(value));
